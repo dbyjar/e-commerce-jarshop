@@ -57,13 +57,13 @@
 				<div id="sosial">
 					<span style="margin-left: 10px;">Fajar AL Hakim</span>
 					<a href="http://facebook.com/fajaral.8">
-						<img src="images/fb_ico.png" />
+						<img src="images/ico/fb_ico.png" />
 					</a>
 					<a href="http://instagram.com/fakejar_">
-						<img class="ig" src="images/ig_ico.png" />
+						<img class="ig" src="images/ico/ig_ico.png" />
 					</a>
 					<a href="http://bit.ly/fajaralyt">
-						<img src="images/yt_ico.png" />
+						<img src="images/ico/yt_ico.png" />
 					</a>
 				</div>
 			</div>
@@ -85,13 +85,13 @@
 					<?php
 						if ($totalBarang != 0) {
 								echo "<a href='".BASE_URL."index.php?page=keranjang' id='tombol-keranjang'>
-										<img src='".BASE_URL."images/cart.png' />
+										<img src='".BASE_URL."images/ico/cart.png' />
 										<span class='nomor'>$totalBarang</span>
 									</a>";
 						}
 						elseif ($user_id == true) {
 							echo "<a href='".BASE_URL."index.php?page=keranjang' id='tombol-keranjang'>
-										<img src='".BASE_URL."images/cart.png' />
+										<img src='".BASE_URL."images/ico/cart.png' />
 									</a>";
 						}
 						else

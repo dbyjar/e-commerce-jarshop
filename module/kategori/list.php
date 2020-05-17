@@ -22,7 +22,7 @@
 				 </tr>";
 				 
 			$no=1;
-			while($row=mysqli_fetch_assoc($queryKategori))
+			while ($row=mysqli_fetch_assoc($queryKategori))
 			{				
 				echo "<tr>
 						<td class='kolom-nomor'>$no</td>
