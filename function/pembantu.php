@@ -1,6 +1,6 @@
 <?php
 	
-	define("BASE_URL", "http://localhost:8080/webjar/");
+	define("BASE_URL", "http://localhost/jarshop/");
 
 	$arrayStatusPesanan [0] = "Menunggu Pembayaran";
 	$arrayStatusPesanan [1] = "Pembayaran Sedang di Validasi";
