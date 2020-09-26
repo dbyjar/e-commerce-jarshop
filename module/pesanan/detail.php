@@ -36,39 +36,50 @@
   <div class="container">
     <form action="#" class="checkout__form">
       <div class="row">
-        <div class="col-lg-8">
-          <h5>Details Order</h5>
+        <div class="col-lg">
+          <h5>Your Order</h5>
           <div class="row">
-            <div class="col-lg-3 col-md-3 col-sm-6">
-              <div class="checkout__form__input">
-                <p>No. Factur</p>
-                <input type="text" value="<?= $pesanan_id; ?>" readonly>
-              </div>
-            </div>
-            <div class="col-lg-9 col-md-9 col-sm-6">
-              <div class="checkout__form__input">
-                <p>Name Order</p>
-                <input type="text" value="<?= $nama; ?>" readonly>
-              </div>
-            </div>
-            <div class="col-lg-12">
-              <div class="checkout__form__input">
-                <p>Name Deliver</p>
-                <input type="text" value="<?= $nama_penerima; ?>" readonly>
-              </div>
-              <div class="checkout__form__input">
-                <p>Address</p>
-                <input type="text" value="<?= $alamat; ?>" readonly>
-              </div>
-              <div class="checkout__form__input">
-                <p>Number</p>
-                <input type="text" value="<?= $nomor_telepon; ?>" readonly>
-              </div>
-              <div class="checkout__form__input">
-                <p>Date Order</p>
-                <input type="text" value="<?= $tanggal_pemesanan; ?>" readonly>
-              </div>
-            </div>
+            
+              <table class="table">
+                <thead class="thead-dark">
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Product</th>
+                    <th scope="col" class='text-center'>QTY</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Total</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  
+                  <?php
+
+                  $queryDetail = mysqli_query($koneksi, "SELECT pesanan_detail.*, barang.nama_barang FROM pesanan_detail JOIN barang ON pesanan_detail.barang_id=barang.barang_id WHERE pesanan_detail.pesanan_id='$pesanan_id'");
+
+                  $no=1;
+                  $subtotal = 0;
+                  while($rowDetail=mysqli_fetch_assoc($queryDetail)){
+
+                    $total = $rowDetail["harga"] * $rowDetail["quantity"];
+                    $subtotal = $subtotal + $total;
+
+                    echo "<tr>
+                            <th scope='row'>$no</th>
+                            <td>$rowDetail[nama_barang]</td>
+                            <td class='text-center'>$rowDetail[quantity]</td>
+                            <td>".rupiah($rowDetail['harga'])."</td>
+                            <td>".rupiah($total)."</td>
+                          </tr>";
+
+                    $no++;
+                  }
+
+                  $subtotal = $subtotal + $tarif;
+                  ?>
+                  
+                </tbody>
+              </table>
+            
             <div class="col-lg-12">
               <div class="checkout__form__checkbox">
                 <!-- <label for="acc">
@@ -81,36 +92,37 @@
             </div>
           </div>
         </div>
-        <div class="col-lg-4">
+        <div class="col-lg-5">
           <div class="checkout__order">
-            <h5>Your order</h5>
+            <h5>Detail Persona</h5>
           <div class="checkout__order__product">
             <ul>
               <li>
-                <span class="top__text">Product</span>
-                <span class="top__text__right">Total</span>
+                <span class="top__text">Name Order</span>
+                <span class="top__text__right"><?= $nama; ?></span>
               </li>
-              <?php
-
-              $queryDetail = mysqli_query($koneksi, "SELECT pesanan_detail.*, barang.nama_barang FROM pesanan_detail JOIN barang ON pesanan_detail.barang_id=barang.barang_id WHERE pesanan_detail.pesanan_id='$pesanan_id'");
-
-              $subtotal = 0;
-              while($rowDetail=mysqli_fetch_assoc($queryDetail)){
-
-              $total = $rowDetail["harga"] * $rowDetail["quantity"];
-              $subtotal = $subtotal + $total;
-
-              echo "<li>$rowDetail[quantity] x $rowDetail[nama_barang] <span>".rupiah($total)."</span></li>";
-              }
-
-              $subtotal = $subtotal + $tarif;
-              ?>
+              <li>
+                <span class="top__text">Name Deliver</span>
+                <span class="top__text__right"><?= $nama_penerima; ?></span>
+              </li>
+              <li>
+                <span class="top__text">Address</span>
+                <span class="top__text__right"><?= $alamat; ?></span>
+              </li>
+              <li>
+                <span class="top__text">Number</span>
+                <span class="top__text__right"><?= $nomor_telepon; ?></span>
+              </li>
+              <li>
+                <span class="top__text">Date Order</span>
+                <span class="top__text__right"><?= $tanggal_pemesanan; ?></span>
+              </li>
             </ul>
           </div>
           <div class="checkout__order__total">
             <ul>
               <li>Shipping <span><?php echo rupiah($tarif); ?></span></li>
-              <li>Total <span><?php echo rupiah($subtotal); ?></span></li>
+              <li>Sub Total <span><?php echo rupiah($subtotal); ?></span></li>
             </ul>
           </div>
           <div class="checkout__order__widget">
@@ -126,3 +138,9 @@
   </div>
 </section>
 <!-- Checkout Section End -->
+
+<style>
+  .top__text__right {
+    font-weight: 100!important;
+  }
+</style>
