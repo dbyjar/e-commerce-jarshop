@@ -31,7 +31,7 @@
     <meta name="keywords" content="Ashion, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>BeeJaaar</title>
+    <title>Jarshop</title>
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Cookie&display=swap" rel="stylesheet">
@@ -39,10 +39,10 @@
     rel="stylesheet">
 
     <!-- Favicon -->
-    <link href="<?php echo BASE_URL."images/fav.ico"; ?>" type="images/x-icon" rel="shortcut icon" />
+    <link href="<?php echo BASE_URL."images/ico/icon.png"; ?>" type="images/x-icon" rel="shortcut icon" />
 
     <!-- Js -->
-    <script src="./vendor/js/jquery-3.3.1.min.js "></script>
+    <script src="./vendor/js/jquery-3.3.1.min.js"></script>
 
     <!-- Css Styles -->
     <link rel="stylesheet" href="./vendor/css/bootstrap.min.css" type="text/css">
@@ -90,13 +90,13 @@
             ?>
         </ul>
         <div class="offcanvas__logo">
-            <a href="<?= BASE_URL ?>"><img src="./vendor/img/logo.png" alt="Logo" class="img-fluid"></a>
+            <a href="<?= BASE_URL ?>"><img src="<?php echo BASE_URL."images/logo.png"; ?>" alt="Logo" class="img-fluid"></a>
         </div>
         <div id="mobile-menu-wrap"></div>
         <div class="offcanvas__auth">
           <?php
             if ($user_id) {
-              echo "<h6>Hi, </h6><a href='".BASE_URL."index.php?page=menu&module=profile&action=list'><h6>$nama</h6></a>";
+              echo "<a href='".BASE_URL."index.php?page=menu&module=profile&action=list'><p>$nama</p></a>";
             }
             else {
               echo "<a href='".BASE_URL."index.php?page=daftar'>Login</a>
@@ -113,15 +113,15 @@
             <div class="row">
                 <div class="col-xl-3 col-lg-3">
                     <div class="header__logo">
-                        <a href="<?= BASE_URL ?>"><img src="./vendor/img/logo.png" alt="Logo" class="img-fluid"></a>
+                        <a href="<?= BASE_URL ?>"><img src="<?php echo BASE_URL."images/logo.png"; ?>" alt="Logo" class="img-fluid"></a>
                     </div>
                 </div>
                 <div class="col-xl-6 col-lg-6">
                     <nav class="header__menu justify-content-center d-flex">
                         <ul>
                             <li class="active"><a href="<?= BASE_URL ?>">Home</a></li>
-                            <li><a href="">Womens</a></li>
-                            <li><a href="">Mens</a></li>
+                            <li><a href="">Women's</a></li>
+                            <li><a href="">Men's</a></li>
                             <li><a href="./shop.html">Shop</a></li>
                             <!-- <li><a href="#">Pages</a>
                                 <ul class="dropdown">
