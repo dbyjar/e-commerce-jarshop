@@ -69,9 +69,6 @@
 			false;
     } -->
 
-    <!-- kategori -->
-    <!-- echo kategori($kategori_id); -->
-		
 <!-- Product Section Begin -->
 <section class="product spad">
   <div class="container">
@@ -83,8 +80,15 @@
       </div>
       <div class="col-lg-8 col-md-8">
         <ul class="filter__controls">
-          <li class="active" data-filter="*">All</li>
-          <li data-filter=".accessories">Accessories</li>
+            <li class="active" data-filter="*">All</li>
+            <!-- kategori -->
+            <?php
+                $queryKategori = mysqli_query($koneksi, "SELECT * FROM kategori WHERE status='on'");
+                while ($row = mysqli_fetch_assoc($queryKategori)) {
+                    $kategori = strtolower($row['kategori']);
+                    echo "<li data-filter='.$kategori'>$row[kategori]</li>";
+                }
+            ?>
         </ul>
       </div>
     </div>
@@ -108,7 +112,7 @@
           $barang = str_replace(" ", "-", $barang);
           
           echo "
-              <div class='col-lg-3 col-md-4 col-sm-6 mix women'>
+              <div class='col-lg-3 col-md-4 col-sm-6 mix $kategori'>
                 <div class='product__item'>
                   <div class='product__item__pic set-bg' data-setbg='".BASE_URL."images/cloth/$row[gambar]'>
                     <div class='label new'>New</div>

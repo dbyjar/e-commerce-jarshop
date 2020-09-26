@@ -42,9 +42,9 @@
 	<div id="profile-konten">
 		<?php
 			$file = "module/$module/$action.php";
-			if(file_exists($file)){
+			if(file_exists($file)) {
 				include_once($file);
-			}else{
+			} else {
 				echo "<p>Maaf, halaman tersebut tidak ditemukan</p>";
 			}
 		?>
