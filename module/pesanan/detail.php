@@ -76,11 +76,7 @@
                   <input type="checkbox" id="acc">
                   <span class="checkmark"></span>
                 </label> -->
-                <p>Silahkan Lakukan pembayaran ke Bank nya Fajar<br/>
-                Nomor Account : 0000-9999-8888 (A/N Fajar Apa Adanya).<br/>
-                Setelah melakukan pembayaran silahkan lakukan konfirmasi pembayaran 
-                <a href="<?php echo BASE_URL."index.php?page=menu&module=pesanan&action=konfirmasi_pembayaran&pesanan_id=$pesanan_id"?>">Disini</a>.
-                </p>
+                
               </div>
             </div>
           </div>
@@ -117,16 +113,16 @@
               <li>Total <span><?php echo rupiah($subtotal); ?></span></li>
             </ul>
           </div>
+          <div class="checkout__order__widget">
+            <p>Pembayaran ke Bank BCA<br/>
+                0000-9999-8888 <strong>(A/N Jarshop)</strong>.<br/>
+                Setelah melakukan pembayaran silahkan lakukan konfirmasi pembayaran
+            </p>
+          </div>
+          <a href="<?php echo BASE_URL."index.php?page=menu&module=pesanan&action=konfirmasi_pembayaran&pesanan_id=$pesanan_id"?>" class="site-btn text-center">Here</a>
         </div>
       </div>
     </form>
   </div>
 </section>
 <!-- Checkout Section End -->
-
-<style>
-  .checkout__order__total {
-    border-bottom: none;
-    margin-bottom: 0px;
-  }
-</style>
