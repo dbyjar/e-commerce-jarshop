@@ -35,7 +35,7 @@
 				}
 			?>
 			<li>
-				<!-- <a <?php if($module == "pesanan"){ echo "class='active'"; } ?> href="<?php echo BASE_URL."index.php?page=menu&module=pesanan&action=list"; ?>">Pesanan</a> -->
+				<a <?php if($module == "pesanan"){ echo "class='active'"; } ?> href="<?php echo BASE_URL."index.php?page=menu&module=pesanan&action=list"; ?>">Pesanan</a>
 			</li>
 		</ul>
 	</div>
@@ -50,3 +50,34 @@
 		?>
 	</div>
 </div>
+
+<style>
+	
+	#menu-profile {
+		display: block;
+		width: 100%;
+		background: #111;
+	}
+
+	#menu-profile ul {
+		display: flex;
+		list-style: none;
+		justify-content: center;
+	}
+
+	#menu-profile li {
+		display: flex;
+		margin: 10px;
+	}
+
+	#menu-profile a {
+		color: #fff;
+		font-size: .8rem;
+	}
+
+	#menu-profile a.active {
+		/* color: #ca1515; */
+		border-bottom: 1px solid #ca1515;
+	}
+
+</style>
