@@ -7,7 +7,7 @@
           <div class="categories__text">
             <h1>Women’s fashion</h1>
             <p>Sitamet, consectetur adipiscing elit, sed do eiusmod tempor incidid-unt labore edolore magna aliquapendisse ultrices gravida.</p>
-            <a href="#">Shop now</a>
+            <a href="<?= BASE_URL."index.php?page=shop" ?>">Shop now</a>
           </div>
         </div>
       </div>
@@ -18,7 +18,7 @@
                   <div class="categories__text">
                       <h4>Men’s fashion</h4>
                       <p>358 items</p>
-                      <a href="#">Shop now</a>
+                      <a href="<?= BASE_URL."index.php?page=shop" ?>">Shop now</a>
                   </div>
               </div>
           </div>
@@ -27,7 +27,7 @@
                   <div class="categories__text">
                       <h4>Kid’s fashion</h4>
                       <p>273 items</p>
-                      <a href="#">Shop now</a>
+                      <a href="<?= BASE_URL."index.php?page=shop" ?>">Shop now</a>
                   </div>
               </div>
           </div>
@@ -36,7 +36,7 @@
                   <div class="categories__text">
                       <h4>Cosmetics</h4>
                       <p>159 items</p>
-                      <a href="#">Shop now</a>
+                      <a href="<?= BASE_URL."index.php?page=shop" ?>">Shop now</a>
                   </div>
               </div>
           </div>
@@ -45,7 +45,7 @@
                   <div class="categories__text">
                       <h4>Accessories</h4>
                       <p>792 items</p>
-                      <a href="#">Shop now</a>
+                      <a href="<?= BASE_URL."index.php?page=shop" ?>">Shop now</a>
                   </div>
               </div>
           </div>
@@ -160,7 +160,7 @@
                 <div class="discount__text">
                     <div class="discount__text__title">
                         <span>Discount</span>
-                        <h2>Summer 2020</h2>
+                        <h2><script>document.write(new Date().getFullYear());</script></h2>
                         <h5><span>Sale</span> 50%</h5>
                     </div>
                     <div class="discount__countdown" id="countdown-time">
@@ -181,7 +181,7 @@
                             <p>Sec</p>
                         </div>
                     </div>
-                    <a href="#">Shop now</a>
+                    <a href="<?= BASE_URL."index.php?page=shop" ?>">Shop now</a>
                 </div>
             </div>
         </div>

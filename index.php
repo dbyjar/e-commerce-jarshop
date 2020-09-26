@@ -119,10 +119,19 @@
                 <div class="col-xl-6 col-lg-6">
                     <nav class="header__menu justify-content-center d-flex">
                         <ul>
-                            <li class="active"><a href="<?= BASE_URL ?>">Home</a></li>
-                            <li><a href="">Women's</a></li>
-                            <li><a href="">Men's</a></li>
-                            <li><a href="./shop.html">Shop</a></li>
+                            <?php $page = isset($_GET['page']) ? $_GET['page'] : false; ?>
+                            <li <?php if($page == ""){ echo "class='active'"; } ?> >
+                                <a href="<?= BASE_URL ?>">Home</a>
+                            </li>
+                            <li <?php if($page == "Women's"){ echo "class='active'"; } ?> >
+                                <a href="">Women's</a>
+                            </li>
+                            <li <?php if($page == "Men's"){ echo "class='active'"; } ?> >
+                                <a href="">Men's</a>
+                            </li>
+                            <li <?php if($page == "shop"){ echo "class='active'"; } ?> >
+                                <a href='<?= BASE_URL."index.php?page=shop" ?>'>Shop</a>
+                            </li>
                             <!-- <li><a href="#">Pages</a>
                                 <ul class="dropdown">
                                     <li><a href="./product-details.html">Product Details</a></li>
@@ -131,7 +140,9 @@
                                     <li><a href="./blog-details.html">Blog Details</a></li>
                                 </ul>
                             </li> -->
-                            <li><a href="./contact.html">Contact</a></li>
+                            <li <?php if($page == "contact"){ echo "class='active'"; } ?> >
+                                <a href="./contact.html">Contact</a>
+                            </li>
                         </ul>
                     </nav>
                 </div>
@@ -205,7 +216,7 @@
               <div class="col-lg-4 col-md-6 col-sm-7">
                   <div class="footer__about">
                       <div class="footer__logo">
-                          <a href="./"><img src="./vendor/img/logo.png" alt=""></a>
+                          <a href="<?= BASE_URL ?>"><img src="<?php echo BASE_URL."images/logo.png"; ?>" alt="Logo" ></a>
                       </div>
                       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
                       cilisis.</p>
@@ -233,10 +244,9 @@
                   <div class="footer__widget">
                       <h6>Account</h6>
                       <ul>
-                          <li><a href="#">My Account</a></li>
-                          <li><a href="#">Orders Tracking</a></li>
-                          <li><a href="#">Checkout</a></li>
-                          <li><a href="#">Wishlist</a></li>
+                          <li><a href='<?= BASE_URL."index.php?page=menu&module=profile&action=list" ?>'>My Account</a></li>
+                          <li><a href='<?= BASE_URL."index.php?page=keranjang" ?>'>Orders Tracking</a></li>
+                          <li><a href='<?= BASE_URL."index.php?page=data_pemesan" ?>'>Checkout</a></li>
                       </ul>
                   </div>
               </div>
