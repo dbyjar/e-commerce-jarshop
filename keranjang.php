@@ -13,85 +13,157 @@
 </div>
 <!-- Breadcrumb End -->
 
+<!-- Shop Cart Section Begin -->
+<section class="shop-cart spad">
+  <div class="container">
+
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="shop__cart__table">
+
 <?php
-	if($totalBarang == 0)
-	{
-		echo "<h4>\"Saat ini belum ada barang di dalam keranjang belanja anda\", Kata sistemnya Fajar :(</h4>";
-	}
-	else
-	{
+	if($totalBarang == 0) {
+		echo "<p class='text-center'>Empty cart.</p>";
+	} else {
 	
-		$no=1;
+		echo "<table>
+            <thead>
+              <tr>
+                <th>Product</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Total</th>
+                <th></th>
+              </tr>
+            </thead>";
 		
-		echo "<table class='table-keranjang'>
-				<tr class='baris-keranjang'>
-					<th class='mid'>No</th>
-					<th class='mid'>Plihanmu</th>
-					<th class='left'>Namanya</th>
-					<th class='mid'>Jumlahnya</th>
-					<th class='right'>Harganya</th>
-					<th class='right'>Total</th>
-					<th class='mid'>Hapus</th>
-				</tr>";
-		
-		$subtotal = 0;		
-		foreach($keranjang AS $key => $value){
-			$barang_id = $key;
-			
+    $subtotal = 0;
+    
+		foreach($keranjang AS $key => $value) {
+      
+      $barang_id = $key;
 			$nama_barang = $value["nama_barang"];
 			$quantity = $value["kuantiti"];
 			$gambar = $value["gambar"];
 			$harga = $value["harga"];
-			
 			$total = $quantity * $harga;
 			$subtotal = $subtotal + $total;
 			
-			echo "<tr>
-					<td class='mid'>$no</td>
-					<td class='mid'><img src='".BASE_URL."images/cloth/$gambar' height='100px' /></td>
-					<td class='left'>$nama_barang</td>
-					<td class='mid'>
-						<input type='text' name='$barang_id' value='$quantity' class='update-quantity' />
-					</td>
-					<td class='right'>".rupiah($harga)."</td>
-					<td class='right'>".rupiah($total)."</td>
-					<td class='mid'>
-						<a class='hapus' href='".BASE_URL."hapus_item.php?barang_id=$barang_id'>Hapus</a>
-					</td>
-				</tr>";
+			echo "<tbody>
+              <tr>
+                <td class='cart__product__item'>
+                  <img src='".BASE_URL."images/cloth/$gambar' alt='' class='img-cart'>
+                  <div class='cart__product__item__title'>
+                    <h6>$nama_barang</h6>
+                    <div class='rating'>
+                      <i class='fa fa-star'></i>
+                      <i class='fa fa-star'></i>
+                      <i class='fa fa-star'></i>
+                      <i class='fa fa-star'></i>
+                      <i class='fa fa-star'></i>
+                    </div>
+                  </div>
+                </td>
+                <td class='cart__price'>".rupiah($harga)."</td>
+                <td class='cart__quantity'>
+                    <div class='pro-qty'>
+                      <input type='text' name='$barang_id' value='$quantity' class='update-quantity' />
+                    </div>
+                </td>
+                <td class='cart__total'>".rupiah($total)."</td>
+                <td class='cart__close'><a href='".BASE_URL."hapus_item.php?barang_id=$barang_id'><span class='icon_close'></span></a>
+                </td>
+              </tr>
+            </tbody>";
 				
-			$no++;
 		}
 		
-		echo "<tr>
-				<td colspan='7' class='sub' align='right'><b>Sub Total = </b><b>".rupiah($subtotal)."</b></td>
-			  </tr>";
-		
-		echo "</table>";
-	
-		echo "<div id='frame-button-keranjang'>
-				<a id='lanjut-belanja' href='".BASE_URL."index.php'>< Lanjut Belanja</a>
-				<a id='lanjut-pemesanan' href='".BASE_URL."index.php?page=data_pemesan'>Lanjut Pemesanan ></a>
-			  </div>";
+    echo "</table></div></div></div>";
+
+    echo "<div class='row mb-3'>
+          <div class='col-lg-4 ml-auto'>
+            <div class='cart__total__procced'>
+                <h6>Cart total</h6>
+                <ul>
+                    <li>Subtotal<span>".rupiah($subtotal)."</span></li>
+                </ul>
+                <a href='".BASE_URL."index.php?page=data_pemesan' class='primary-btn'>Proceed to checkout</a>
+            </div>
+          </div></div>";
+    
 	}
+
+    echo "<div class='row'>
+            <div class='col-lg-6 col-md-6 col-sm-6'>
+                <div class='cart__btn'>
+                    <a href='".BASE_URL."index.php'>Continue Shopping</a>
+                </div>
+            </div>
+            <div class='col-lg-6 col-md-6 col-sm-6'>
+                <div class='cart__btn update__btn'>
+                    <a href='".BASE_URL."index.php?page=data_pemesan'><span class='icon_loading'></span>Update cart</a>
+                </div>
+            </div>
+          </div>";
 
 ?>
 
+    <div class="row">
+        <!-- <div class="col-lg-6">
+            <div class="discount__content">
+                <h6>Discount codes</h6>
+                <form action="#">
+                    <input type="text" placeholder="Enter your coupon code">
+                    <button type="submit" class="site-btn">Apply</button>
+                </form>
+            </div>
+        </div> -->
+    </div>
+  </div>
+</section>
+<!-- Shop Cart Section End -->
+
+<style>
+  .img-cart {
+    width: 20%;
+  }
+</style>
+
 <script>
 
-	$(".update-quantity").on("input", function(e){
-		var barang_id = $(this).attr("name");
-		var value = $(this).val();
-		
-		$.ajax({
-			method: "POST",
-			url: "update_keranjang.php",
-			data: "barang_id="+barang_id+"&value="+value
-		})
-		.done(function(data){
-			location.reload();
-		});
-		
-	});
+   /*-------------------
+		Quantity change
+	--------------------- */
+  var proQty = $('.pro-qty');
+    proQty.prepend('<span class="dec qtybtn">-</span>');
+    proQty.append('<span class="inc qtybtn">+</span>');
+    proQty.on('click', '.qtybtn', function () {
+
+        var $button = $(this);
+        var oldValue = $button.parent().find('input').val();
+        var barang_id = $button.parent().find('input').attr("name");
+
+        if ($button.hasClass('inc')) {
+            var newVal = parseFloat(oldValue) + 1;
+        } else {
+            // Don't allow decrementing below zero
+            if (oldValue > 0) {
+                var newVal = parseFloat(oldValue) - 1;
+            } else {
+                newVal = 0;
+            }
+        }
+
+        $button.parent().find('input').val(newVal);
+
+        $.ajax({
+            method: "POST",
+            url: 'update_keranjang.php',
+            data: "barang_id=" + barang_id + "&value=" + newVal
+        }).done(function (data) {
+            location.reload();
+        });
+
+    });
 
 </script>
