@@ -2,7 +2,7 @@
 <?php
   $barang_id = $_GET['barang_id'];
   $query = mysqli_query($koneksi, "SELECT * FROM barang WHERE barang_id='$barang_id' AND status='on'");
-  $row = mysqli_fetch_assoc($query); 
+  $row = mysqli_fetch_assoc($query);
 ?>  
 
 <!-- Breadcrumb Begin -->
@@ -11,8 +11,8 @@
 		<div class="row">
 			<div class="col-lg-12">
 				<div class="breadcrumb__links">
-					<a href="./index.html"><i class="fa fa-home"></i> Home</a>
-					<a href="#">Women’s </a>
+					<a href='<?= BASE_URL ?>'><i class="fa fa-home"></i> Home</a>
+					<a href='<?= BASE_URL."index.php?page=shop" ?>'>Shop</a>
 					<span><?= $row['nama_barang'] ?></span>
 				</div>
 			</div>

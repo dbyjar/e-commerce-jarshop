@@ -22,7 +22,7 @@
     <div class="row">
       <div class="col-lg-12">
         <div class="breadcrumb__links">
-          <a href="./index.html"><i class="fa fa-home"></i> Home</a>
+          <a href='<?= BASE_URL ?>'><i class="fa fa-home"></i> Home</a>
           <span>Details Order</span>
         </div>
       </div>
