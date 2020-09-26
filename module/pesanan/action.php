@@ -10,7 +10,7 @@
 	$pesanan_id = $_GET['pesanan_id'];
 	$button = $_POST['button'];
 	
-	if($button == "Konfirmasi"){
+	if($button == "Confirm"){
 	
 		$user_id = $_SESSION["user_id"];
 		$nomor_rekening = $_POST['nomor_rekening'];
