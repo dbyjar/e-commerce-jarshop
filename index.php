@@ -154,8 +154,8 @@
 									echo "<a href='".BASE_URL."index.php?page=menu&module=profile&action=list'><p>$nama</p></a>";
 								}
 								else {
-									echo "<a href='".BASE_URL."index.php?page=daftar'>Login</a>
-										<a href='".BASE_URL."index.php?page=masuk'>Register</a>";
+									echo "<a href='".BASE_URL."index.php?page=daftar'>Register</a>
+										<a href='".BASE_URL."index.php?page=masuk'>Login</a>";
 								}
 							?>
                         </div>
