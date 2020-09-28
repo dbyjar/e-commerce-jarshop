@@ -3795,3 +3795,53 @@ ol {
 		font-size: 24px;
 	}
 }
+
+/* style Menu.php */
+#bg-page-profile {
+	border-bottom: 1px solid rgba(0, 0, 0, .1);
+	padding-bottom: 2rem;
+}
+
+#menu-profile {
+	width: 100%;
+}
+
+#menu-profile ul {
+	list-style: none;
+	justify-content: center;
+	padding-top: 2rem;
+}
+
+#menu-profile li {
+	padding: 0 1rem;
+	/* background: #111; */
+	display: flex;
+	margin: 10px;
+	border-radius: 2rem;
+	border: 1px solid rgba(0, 0, 0, .1);
+	transition: all .5s;
+}
+
+#menu-profile li:hover {
+	background: #ca1515;
+}
+
+#menu-profile li:hover a {
+	color: #fff !important;
+}
+
+#menu-profile li.active {
+	color: #fff !important;
+	font-weight: bold;
+	background: #ca1515;
+}
+
+#menu-profile li.active a {
+	color: #fff !important;
+}
+
+#menu-profile a {
+	color: #111;
+	font-size: .8rem;
+	padding: 10px 0;
+}

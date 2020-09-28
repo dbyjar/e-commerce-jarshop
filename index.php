@@ -16,10 +16,6 @@
 	$keranjang = isset($_SESSION['keranjang']) ? $_SESSION['keranjang'] : array();
 	$totalBarang = count($keranjang);
 
-	// echo "<pre>";
-	// print_r($keranjang);
-	// echo "</pre>";
-
 ?>
 
 <!DOCTYPE html>
@@ -119,41 +115,31 @@
                 <div class="col-xl-6 col-lg-6">
                     <nav class="header__menu justify-content-center d-flex">
                         <ul>
-                            <?php $page = isset($_GET['page']) ? $_GET['page'] : false; ?>
                             <li <?php if($page == ""){ echo "class='active'"; } ?> >
                                 <a href="<?= BASE_URL ?>">Home</a>
                             </li>
                             <li <?php if($page == "Women's"){ echo "class='active'"; } ?> >
                                 <a href="">Women's</a>
                             </li>
-                            <li <?php if($page == "Men's"){ echo "class='active'"; } ?> >
-                                <a href="">Men's</a>
-                            </li>
                             <li <?php if($page == "shop"){ echo "class='active'"; } ?> >
                                 <a href='<?= BASE_URL."index.php?page=shop" ?>'>Shop</a>
                             </li>
-                            <!-- <li><a href="#">Pages</a>
-                                <ul class="dropdown">
-                                    <li><a href="./product-details.html">Product Details</a></li>
-                                    <li><a href="./shop-cart.html">Shop Cart</a></li>
-                                    <li><a href="./checkout.html">Checkout</a></li>
-                                    <li><a href="./blog-details.html">Blog Details</a></li>
-                                </ul>
-                            </li> -->
                             <li <?php if($page == "contact"){ echo "class='active'"; } ?> >
                                 <a href="./contact.html">Contact</a>
+                            </li>
+                            <li <?php if($page == "about"){ echo "class='active'"; } ?> >
+                                <a href="">About</a>
                             </li>
                         </ul>
                     </nav>
                 </div>
                 <div class="col-lg-3">
                     <div class="header__right">
-                        <div class="header__right__auth">
-							<?php
+                        <div class="header__right__auth"> 
+                            <?php
 								if ($user_id) {
-									echo "<a href='".BASE_URL."index.php?page=menu&module=profile&action=list'><p>$nama</p></a>";
-								}
-								else {
+                                    echo "<a href='".BASE_URL."index.php?page=menu&module=profile&action=list'><p>$nama</p></a>";
+								} else {
 									echo "<a href='".BASE_URL."index.php?page=daftar'>Register</a>
 										<a href='".BASE_URL."index.php?page=masuk'>Login</a>";
 								}
