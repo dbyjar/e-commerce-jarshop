@@ -18,16 +18,17 @@
 
 <!-- Breadcrumb Begin -->
 <div class="breadcrumb-option">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-12">
-        <div class="breadcrumb__links">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="breadcrumb__links">
           <a href='<?= BASE_URL ?>'><i class="fa fa-home"></i> Home</a>
-          <span>Details Order</span>
-        </div>
-      </div>
-    </div>
-  </div>
+          <a href="<?= BASE_URL."index.php?page=menu&module=pesanan&action=list" ?>">Order </a>
+					<span>Detail Order</span>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
 <!-- Breadcrumb End -->
 
@@ -131,7 +132,15 @@
                 Setelah melakukan pembayaran silahkan lakukan konfirmasi pembayaran
             </p>
           </div>
-          <a href="<?php echo BASE_URL."index.php?page=menu&module=pesanan&action=konfirmasi_pembayaran&pesanan_id=$pesanan_id"?>" class="site-btn text-center">Here</a>
+         
+         <?php
+            $query = mysqli_query($koneksi, "SELECT * FROM konfirmasi_pembayaran
+                                              WHERE pesanan_id='$pesanan_id'");
+            $data = mysqli_fetch_assoc($query);
+          ?>
+
+          <a href='<?= BASE_URL."index.php?page=menu&module=pesanan&action=konfirmasi_pembayaran&pesanan_id=$pesanan_id" ?>' class="site-btn btn text-center <?php if($data){ echo "disabled"; } ?>">Here</a>
+          
         </div>
       </div>
     </form>
