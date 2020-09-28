@@ -13,6 +13,10 @@
 <div id="bg-page-profile">
 	<div id="menu-profile">
 		<ul>
+			<li>
+				<a <?php if($module == "profile"){ echo "class='active'"; } ?> href="<?php echo BASE_URL."index.php?page=menu&module=profile&action=list"; ?>">Profile</a>
+			</li>
+
 			<?php
 				if($level == "superadmin"){
 			?>
@@ -34,6 +38,7 @@
 			<?php
 				}
 			?>
+
 			<li>
 				<a <?php if($module == "pesanan"){ echo "class='active'"; } ?> href="<?php echo BASE_URL."index.php?page=menu&module=pesanan&action=list"; ?>">Pesanan</a>
 			</li>
