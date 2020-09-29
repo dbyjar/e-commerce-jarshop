@@ -22,13 +22,13 @@
 					if($level == "superadmin"){
 				?>
 					<li <?php if($module == "kategori"){ echo "class='active'"; } ?> >
-						<a href="<?php echo BASE_URL."index.php?page=menu&module=kategori&action=list"; ?>">Kategori</a>
+						<a href="<?php echo BASE_URL."index.php?page=menu&module=kategori&action=list"; ?>">Category</a>
 					</li>
 					<li <?php if($module == "barang"){ echo "class='active'"; } ?> >
-						<a href="<?php echo BASE_URL."index.php?page=menu&module=barang&action=list"; ?>">Barang</a>
+						<a href="<?php echo BASE_URL."index.php?page=menu&module=barang&action=list"; ?>">Items</a>
 					</li>
 					<li <?php if($module == "kota"){ echo "class='active'"; } ?> >
-						<a href="<?php echo BASE_URL."index.php?page=menu&module=kota&action=list"; ?>">Kota</a>
+						<a href="<?php echo BASE_URL."index.php?page=menu&module=kota&action=list"; ?>">Shipping</a>
 					</li>
 					<li <?php if($module == "user"){ echo "class='active'"; } ?> >
 						<a href="<?php echo BASE_URL."index.php?page=menu&module=user&action=list"; ?>">User</a>
@@ -40,7 +40,7 @@
 					}
 				?>
 				<li <?php if($module == "pesanan"){ echo "class='active'"; } ?> >
-					<a href="<?php echo BASE_URL."index.php?page=menu&module=pesanan&action=list"; ?>">Pesanan</a>
+					<a href="<?php echo BASE_URL."index.php?page=menu&module=pesanan&action=list"; ?>">Order</a>
 				</li>
 			</ul>
 		</div>

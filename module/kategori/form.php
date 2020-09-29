@@ -39,7 +39,7 @@
 <form action="<?php echo BASE_URL."module/kategori/aksi.php?kategori_id=$kategori_id"; ?>" method="POST" class="mt-5">
 	<div class="form-group">
 		<label>Category</label>
-		<input type="etextmail" name="kategori" value="<?php echo($kategori); ?>" class="form-control" placeholder="Enter category">
+		<input type="text" name="kategori" value="<?php echo($kategori); ?>" class="form-control" placeholder="Enter category">
 	</div>
 	<label>Status</label>
 	<div class="form-group">
