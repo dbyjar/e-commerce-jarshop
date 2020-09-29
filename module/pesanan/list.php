@@ -70,16 +70,6 @@
 
 <?php } ?>
             
-            <div class="col-lg-12">
-              <div class="checkout__form__checkbox">
-                <!-- <label for="acc">
-                Create an acount?
-                  <input type="checkbox" id="acc">
-                  <span class="checkmark"></span>
-                </label> -->
-                
-              </div>
-            </div>
           </div>
         </div>
       </div>
