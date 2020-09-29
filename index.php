@@ -126,7 +126,7 @@
                                 <a href='<?= BASE_URL."index.php?page=shop" ?>'>Shop</a>
                             </li>
                             <li <?php if($page == "contact"){ echo "class='active'"; } ?> >
-                                <a href="./contact.html">Contact</a>
+                                <a href="<?= BASE_URL."index.php?page=contact" ?>">Contact</a>
                             </li>
                         </ul>
                     </nav>
