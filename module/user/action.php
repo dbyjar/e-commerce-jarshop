@@ -11,7 +11,7 @@
 	$phone = $_POST["phone"];
 	$alamat = $_POST["alamat"];
 	$level = $_POST["level"];
-	$status = $_POST["status"];	
+	$status = $_POST["status"];
 
 	mysqli_query($koneksi, "UPDATE user SET nama='$nama',
 											   email='$email',
