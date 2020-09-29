@@ -123,10 +123,10 @@
                             <li <?php if($page == ""){ echo "class='active'"; } ?> >
                                 <a href="<?= BASE_URL ?>">Home</a>
                             <li <?php if($page == "shop"){ echo "class='active'"; } ?> >
-                                <a href='<?= BASE_URL."index.php?page=shop" ?>'>Shop</a>
+                                <a href='<?= BASE_URL."shop.html" ?>'>Shop</a>
                             </li>
                             <li <?php if($page == "contact"){ echo "class='active'"; } ?> >
-                                <a href="<?= BASE_URL."index.php?page=contact" ?>">Contact</a>
+                                <a href="<?= BASE_URL."contact.html" ?>">Contact</a>
                             </li>
                         </ul>
                     </nav>
@@ -140,8 +140,8 @@
                                 echo "<a href='".BASE_URL."index.php?page=menu&module=profile&action=list'><p>$nama</p></a>";
                             }
                             else {
-                                echo "<a href='".BASE_URL."index.php?page=masuk'>Login</a>
-                                <a href='".BASE_URL."index.php?page=daftar'>Register</a>";
+                                echo "<a href='".BASE_URL."masuk.html'>Login</a>
+                                <a href='".BASE_URL."daftar.html'>Register</a>";
                             }
                         ?>
                         </div>
@@ -154,7 +154,7 @@
                             <?php
                                 if ($totalBarang != 0) {
                                     echo "<li>
-                                    <a href='".BASE_URL."index.php?page=keranjang' id='tombol-keranjang'>
+                                    <a href='".BASE_URL."keranjang.html' id='tombol-keranjang'>
                                     <span class='icon_bag_alt'></span>
                                     <div class='tip'>$totalBarang</div>
                                     </a>
@@ -162,7 +162,7 @@
                                 }
                                 elseif ($user_id == true) {
                                     echo "<li>
-                                    <a href='".BASE_URL."index.php?page=keranjang' id='tombol-keranjang'>
+                                    <a href='".BASE_URL."keranjang.html' id='tombol-keranjang'>
                                     <span class='icon_bag_alt'></span>
                                     </a>
                                     </li>";
@@ -231,8 +231,8 @@
                       <h6>Account</h6>
                       <ul>
                           <li><a href='<?= BASE_URL."index.php?page=menu&module=profile&action=list" ?>'>My Account</a></li>
-                          <li><a href='<?= BASE_URL."index.php?page=keranjang" ?>'>Orders Tracking</a></li>
-                          <li><a href='<?= BASE_URL."index.php?page=data_pemesan" ?>'>Checkout</a></li>
+                          <li><a href='<?= BASE_URL."keranjang.html" ?>'>Orders Tracking</a></li>
+                          <li><a href='<?= BASE_URL."data_pemesan.html" ?>'>Checkout</a></li>
                       </ul>
                   </div>
               </div>

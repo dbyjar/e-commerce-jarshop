@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.5
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Waktu pembuatan: 25 Sep 2020 pada 12.36
--- Versi server: 10.3.16-MariaDB
--- Versi PHP: 7.3.12
+-- Host: 127.0.0.1
+-- Waktu pembuatan: 29 Sep 2020 pada 06.53
+-- Versi server: 10.4.14-MariaDB
+-- Versi PHP: 7.4.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -19,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `id10104729_weshop`
+-- Database: `weshop`
 --
 
 -- --------------------------------------------------------
@@ -41,9 +40,7 @@ CREATE TABLE `banner` (
 --
 
 INSERT INTO `banner` (`banner_id`, `banner`, `gambar`, `link`, `status`) VALUES
-(1, 'Vector Vexel JDindaaa', 'formal.jpg', '#', 'on'),
-(2, 'Vector Vexel Cicilya', 'halfbody.jpg', '#', 'on'),
-(3, 'Vector Vexel Alam', 'fullbody.jpg', '#', 'on');
+(4, 'Vector', 'fullbody.jpg', 'index.php?page=', 'off');
 
 -- --------------------------------------------------------
 
@@ -67,16 +64,10 @@ CREATE TABLE `barang` (
 --
 
 INSERT INTO `barang` (`barang_id`, `kategori_id`, `nama_barang`, `spesifikasi`, `gambar`, `harga`, `stok`, `status`) VALUES
-(15, 1, 'Fact.co Old Black', '<p>Cotton Combed 30s</p>', 'aclbl1.jpg', 130000, 5, 'on'),
-(16, 2, 'Vexel Formal', '<p><strong><em>KEPALA&nbsp;</em></strong>sampai&nbsp;<em>Bahu</em></p>', 'dinda.jpg', 75000, 1, 'on'),
-(17, 1, 'Fact.co JAR White', '<p>Cotton Combed 30s</p>', 'aclwh2.jpg', 110000, 7, 'on'),
-(18, 1, 'Fact.co String Raglan White', '<p>Cotton 100%</p>', 'aclrg2.jpg', 130000, 52, 'on'),
-(19, 2, 'Vexel Half-Body', '<p><strong>KEPALA </strong><em>sampai <strong>Perut</strong></em></p>', 'cicil.jpg', 90000, 1, 'on'),
-(20, 2, 'Vexel Full-Body', '<p><em><strong>SELURUH </strong>badan</em></p>', 'alam.jpg', 110000, 1, 'on'),
-(21, 4, 'Give Away Vexel', '<p><strong>On <em>Instagram</em></strong></p>', 'Giveaway.jpg', 0, 1, 'on'),
-(22, 4, 'Flat X 3D', '<p>20 x 20 cm 150px</p>', 'Versi 3.0.png', 50000, 1, 'on'),
-(23, 4, 'Desain Kaos TPLM008', '<p>2018</p>', 'design1_08.jpg', 50000, 1, 'on'),
-(24, 1, 'Baju', '<p>Cotton</p>', 'dinda.jpg', 120000, 15, 'on');
+(27, 9, 'Fact.co Black Tees', '<p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut loret fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt loret. Neque porro lorem quisquam est, qui dolorem ipsum quia dolor si. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut loret fugit, sed quia ipsu consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Nulla consequat massa quis enim.</p>', 'product-2.jpg', 100000, 12, 'on'),
+(28, 9, 'Fajar Brand White Tees SS', '<p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut loret fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt loret. Neque porro lorem quisquam est, qui dolorem ipsum quia dolor si. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut loret fugit, sed quia ipsu consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Nulla consequat massa quis enim.</p>', 'product-3.jpg', 75000, 12, 'on'),
+(29, 8, 'Buttons tweed blazer', '<p>http://localhost/jarshop/images/cloth/Desain 1(Putih).jpg</p>', 'product-1.jpg', 60000, 22, 'on'),
+(30, 9, 'Idowhatiwantto Tees', '<p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut loret fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt loret. Neque porro lorem quisquam est, qui dolorem ipsum quia dolor si. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut loret fugit, sed quia ipsu consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Nulla consequat massa quis enim.</p><p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.</p>', 'product-4.jpg', 200000, 6, 'on');
 
 -- --------------------------------------------------------
 
@@ -95,11 +86,9 @@ CREATE TABLE `kategori` (
 --
 
 INSERT INTO `kategori` (`kategori_id`, `kategori`, `status`) VALUES
-(1, 'Clothing', 'on'),
-(2, 'Vector Vexel', 'on'),
-(4, 'Galery', 'on'),
-(5, 'Logo', 'off'),
-(7, 'Photo', 'off');
+(8, 'Accessories', 'on'),
+(9, 'T-Shirt', 'on'),
+(10, 'Men', 'off');
 
 -- --------------------------------------------------------
 
@@ -122,9 +111,7 @@ CREATE TABLE `konfirmasi_pembayaran` (
 --
 
 INSERT INTO `konfirmasi_pembayaran` (`konfirmasi_id`, `pesanan_id`, `nomor_rekening`, `nama_account`, `total_pembayaran`, `tanggal_transfer`, `status`) VALUES
-(4, 6, '879879879809098', 'Ardan', 0, '2019-06-23', 0),
-(5, 8, '89098090', 'fajar al hakim', 0, '2019-12-09', 0),
-(6, 8, '89098090', 'kjldfsd', 0, '2019-07-11', 0);
+(10, 16, '0983414109804', 'Fajar Al Hakim', 0, '2020-09-28', 0);
 
 -- --------------------------------------------------------
 
@@ -173,10 +160,7 @@ CREATE TABLE `pesanan` (
 --
 
 INSERT INTO `pesanan` (`pesanan_id`, `kota_id`, `user_id`, `nama_penerima`, `nomor_telepon`, `alamat`, `tanggal_pemesanan`, `status`) VALUES
-(6, 4, 15, 'Paijo', '545645', 'jl. mgaso', '2019-06-23 15:02:58', 3),
-(7, 1, 15, '', '', '', '2019-07-02 09:59:35', 0),
-(8, 2, 15, 'Fajar', '089999', 'jl.njk', '2019-07-02 15:20:37', 1),
-(9, 1, 15, 'Fajar', '9809', 'jl.,dv', '2019-07-02 15:22:31', 2);
+(16, 1, 19, 'Fajar', '+6285777774107', 'KP. SANGGRAHAN No.6 RT.001/06', '2020-09-28 06:04:21', 1);
 
 -- --------------------------------------------------------
 
@@ -196,11 +180,7 @@ CREATE TABLE `pesanan_detail` (
 --
 
 INSERT INTO `pesanan_detail` (`pesanan_id`, `barang_id`, `quantity`, `harga`) VALUES
-(6, 18, 12, 130000),
-(7, 23, 1, 50000),
-(8, 24, 4, 120000),
-(8, 18, 5, 130000),
-(9, 18, 3, 130000);
+(16, 30, 1, 200000);
 
 -- --------------------------------------------------------
 
@@ -224,8 +204,9 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`user_id`, `level`, `nama`, `email`, `alamat`, `phone`, `password`, `status`) VALUES
-(15, 'superadmin', 'Fajar Al Hakim', 'fjralhakim@gmail.com', 'Kp. Sanggrahan', '085777774107', '4ac95507a2ac37e76f9f0a68dd686ef1', 'on'),
-(17, 'customer', 'JDindaaa', 'jdindaaa@gmail.com', 'Bintaro Komplek BBC', '089678567456', 'd579117ca1bb21a92b0e8d8ce01ee56b', 'on');
+(18, 'superadmin', 'Admin db', 'admin@dbyjar.com', 'Meruya Utara Jakarta', '085777774107', '4ac95507a2ac37e76f9f0a68dd686ef1', 'on'),
+(19, 'customer', 'Test', 'user@dbyjar.com', 'Meruya Utara', '085777774108', 'd41d8cd98f00b204e9800998ecf8427e', 'on'),
+(20, 'superadmin', 'Fajar', 'fjr@gmail.com', 'SANGGRAHAN No.6', '85777774107', '4ac95507a2ac37e76f9f0a68dd686ef1', 'off');
 
 --
 -- Indexes for dumped tables
@@ -292,25 +273,25 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT untuk tabel `banner`
 --
 ALTER TABLE `banner`
-  MODIFY `banner_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `banner_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT untuk tabel `barang`
 --
 ALTER TABLE `barang`
-  MODIFY `barang_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `barang_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT untuk tabel `kategori`
 --
 ALTER TABLE `kategori`
-  MODIFY `kategori_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `kategori_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT untuk tabel `konfirmasi_pembayaran`
 --
 ALTER TABLE `konfirmasi_pembayaran`
-  MODIFY `konfirmasi_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `konfirmasi_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT untuk tabel `kota`
@@ -322,13 +303,13 @@ ALTER TABLE `kota`
 -- AUTO_INCREMENT untuk tabel `pesanan`
 --
 ALTER TABLE `pesanan`
-  MODIFY `pesanan_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `pesanan_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT untuk tabel `user`
 --
 ALTER TABLE `user`
-  MODIFY `user_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `user_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
