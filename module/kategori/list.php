@@ -14,6 +14,12 @@
 <!-- Breadcrumb End -->
 
 <!-- Section Begin -->
+<style>
+	.spad {
+		margin-top: 2rem!important;
+		padding-top: 0!important;
+	}
+</style>
 <section class="checkout spad">
   <div class="container">
 	<a href="<?php echo BASE_URL."index.php?page=menu&module=kategori&action=form"; ?>" class="btn btn-primary mb-3">Category <i class="fa fa-plus"></i></a>
