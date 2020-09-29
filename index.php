@@ -16,10 +16,6 @@
 	$keranjang = isset($_SESSION['keranjang']) ? $_SESSION['keranjang'] : array();
 	$totalBarang = count($keranjang);
 
-	// echo "<pre>";
-	// print_r($keranjang);
-	// echo "</pre>";
-
 ?>
 
 <!DOCTYPE html>
@@ -39,7 +35,7 @@
     rel="stylesheet">
 
     <!-- Favicon -->
-    <link href="<?php echo BASE_URL."images/ico/icon.png"; ?>" type="images/x-icon" rel="shortcut icon" />
+    <link href="images/ico/icon.png" type="images/x-icon" rel="shortcut icon" />
 
     <!-- Js -->
     <script src="./vendor/js/jquery-3.3.1.min.js"></script>
@@ -58,9 +54,9 @@
 
 <body>
     <!-- Page Preloder -->
-    <!-- <div id="preloder">
+    <div id="preloder">
         <div class="loader"></div>
-    </div> -->
+    </div>
 
     <!-- Offcanvas Menu Begin -->
     <div class="offcanvas-menu-overlay"></div>
@@ -68,41 +64,44 @@
         <div class="offcanvas__close">+</div>
         <ul class="offcanvas__widget">
             <li><span class="icon_search search-switch"></span></li>
+            <!-- KERANJANG -->
             <?php
-              if ($totalBarang != 0) {
-                  echo "<li>
-                  <a href='".BASE_URL."index.php?page=keranjang' id='tombol-keranjang'>
+                if ($totalBarang != 0) {
+                    echo "<li>
+                    <a href='".BASE_URL."index.php?page=keranjang' id='tombol-keranjang'>
                     <span class='icon_bag_alt'></span>
                     <div class='tip'>$totalBarang</div>
-                  </a>
-                  </li>";
-              }
-              elseif ($user_id == true) {
-                echo "<li>
-                  <a href='".BASE_URL."index.php?page=keranjang' id='tombol-keranjang'>
+                    </a>
+                    </li>";
+                }
+                elseif ($user_id == true) {
+                    echo "<li>
+                    <a href='".BASE_URL."index.php?page=keranjang' id='tombol-keranjang'>
                     <span class='icon_bag_alt'></span>
-                  </a>
-                  </li>";
-              }
-              else {
-                false;
-              }
+                    </a>
+                    </li>";
+                }
+                else {
+                    false;
+                }
             ?>
         </ul>
         <div class="offcanvas__logo">
-            <a href="<?= BASE_URL ?>"><img src="<?php echo BASE_URL."images/logo.png"; ?>" alt="Logo" class="img-fluid"></a>
+            <!-- LOGO -->
+            <a href="<?php echo BASE_URL ?>"><img src="<?php echo BASE_URL."images/logo.png"; ?>" alt="Logo" class="img-fluid"></a>
         </div>
         <div id="mobile-menu-wrap"></div>
         <div class="offcanvas__auth">
+          <!-- AUTH -->
           <?php
-            if ($user_id) {
-              echo "<a href='".BASE_URL."index.php?page=menu&module=profile&action=list'><p>$nama</p></a>";
-            }
-            else {
-              echo "<a href='".BASE_URL."index.php?page=daftar'>Login</a>
-                <a href='".BASE_URL."index.php?page=masuk'>Register</a>";
-            }
-          ?>
+                if ($user_id) {
+                    echo "<a href='".BASE_URL."index.php?page=menu&module=profile&action=list'><p>$nama</p></a>";
+                }
+                else {
+                    echo "<a href='".BASE_URL."index.php?page=masuk'>Login</a>
+                    <a href='".BASE_URL."index.php?page=daftar'>Register</a>";
+                }
+            ?>
         </div>
     </div>
     <!-- Offcanvas Menu End -->
@@ -113,78 +112,65 @@
             <div class="row">
                 <div class="col-xl-3 col-lg-3">
                     <div class="header__logo">
-                        <a href="<?= BASE_URL ?>"><img src="<?php echo BASE_URL."images/logo.png"; ?>" alt="Logo" class="img-fluid"></a>
+                        <!-- LOGO -->
+                        <a href="<?php echo BASE_URL ?>"><img src="<?php echo BASE_URL."images/logo.png"; ?>" alt="Logo" class="img-fluid"></a>
                     </div>
                 </div>
                 <div class="col-xl-6 col-lg-6">
                     <nav class="header__menu justify-content-center d-flex">
                         <ul>
-                            <?php $page = isset($_GET['page']) ? $_GET['page'] : false; ?>
+                            <!-- MENU -->
                             <li <?php if($page == ""){ echo "class='active'"; } ?> >
                                 <a href="<?= BASE_URL ?>">Home</a>
-                            </li>
-                            <li <?php if($page == "Women's"){ echo "class='active'"; } ?> >
-                                <a href="">Women's</a>
-                            </li>
-                            <li <?php if($page == "Men's"){ echo "class='active'"; } ?> >
-                                <a href="">Men's</a>
-                            </li>
                             <li <?php if($page == "shop"){ echo "class='active'"; } ?> >
-                                <a href='<?= BASE_URL."index.php?page=shop" ?>'>Shop</a>
+                                <a href='<?= BASE_URL."shop.html" ?>'>Shop</a>
                             </li>
-                            <!-- <li><a href="#">Pages</a>
-                                <ul class="dropdown">
-                                    <li><a href="./product-details.html">Product Details</a></li>
-                                    <li><a href="./shop-cart.html">Shop Cart</a></li>
-                                    <li><a href="./checkout.html">Checkout</a></li>
-                                    <li><a href="./blog-details.html">Blog Details</a></li>
-                                </ul>
-                            </li> -->
                             <li <?php if($page == "contact"){ echo "class='active'"; } ?> >
-                                <a href="./contact.html">Contact</a>
+                                <a href="<?= BASE_URL."contact.html" ?>">Contact</a>
                             </li>
                         </ul>
                     </nav>
                 </div>
                 <div class="col-lg-3">
                     <div class="header__right">
-                        <div class="header__right__auth">
-							<?php
-								if ($user_id) {
-									echo "<a href='".BASE_URL."index.php?page=menu&module=profile&action=list'><p>$nama</p></a>";
-								}
-								else {
-									echo "<a href='".BASE_URL."index.php?page=daftar'>Register</a>
-										<a href='".BASE_URL."index.php?page=masuk'>Login</a>";
-								}
-							?>
+                        <div class="header__right__auth"> 
+                        <!-- AUTH -->
+                        <?php
+                            if ($user_id) {
+                                echo "<a href='".BASE_URL."index.php?page=menu&module=profile&action=list'><p>$nama</p></a>";
+                            }
+                            else {
+                                echo "<a href='".BASE_URL."masuk.html'>Login</a>
+                                <a href='".BASE_URL."daftar.html'>Register</a>";
+                            }
+                        ?>
                         </div>
                         <ul class="header__right__widget">
                             <li><span class="icon_search search-switch"></span></li>
                             <!-- <li><a href="#"><span class="icon_heart_alt"></span>
                                 <div class="tip">2</div></a>
                             </li> -->
-                        <?php
-                          if ($totalBarang != 0) {
-                              echo "<li>
-                              <a href='".BASE_URL."index.php?page=keranjang' id='tombol-keranjang'>
-                                <span class='icon_bag_alt'></span>
-                                <div class='tip'>$totalBarang</div>
-                              </a>
-                              </li>";
-                          }
-                          elseif ($user_id == true) {
-                            echo "<li>
-                              <a href='".BASE_URL."index.php?page=keranjang' id='tombol-keranjang'>
-                                <span class='icon_bag_alt'></span>
-                              </a>
-                              </li>";
-                          }
-                          else {
-                            false;
-                          }
-                        ?>
-                            
+                            <!-- KERANJANG -->
+                            <?php
+                                if ($totalBarang != 0) {
+                                    echo "<li>
+                                    <a href='".BASE_URL."keranjang.html' id='tombol-keranjang'>
+                                    <span class='icon_bag_alt'></span>
+                                    <div class='tip'>$totalBarang</div>
+                                    </a>
+                                    </li>";
+                                }
+                                elseif ($user_id == true) {
+                                    echo "<li>
+                                    <a href='".BASE_URL."keranjang.html' id='tombol-keranjang'>
+                                    <span class='icon_bag_alt'></span>
+                                    </a>
+                                    </li>";
+                                }
+                                else {
+                                    false;
+                                }
+                            ?>
                         </ul>
                     </div>
                 </div>
@@ -245,8 +231,8 @@
                       <h6>Account</h6>
                       <ul>
                           <li><a href='<?= BASE_URL."index.php?page=menu&module=profile&action=list" ?>'>My Account</a></li>
-                          <li><a href='<?= BASE_URL."index.php?page=keranjang" ?>'>Orders Tracking</a></li>
-                          <li><a href='<?= BASE_URL."index.php?page=data_pemesan" ?>'>Checkout</a></li>
+                          <li><a href='<?= BASE_URL."keranjang.html" ?>'>Orders Tracking</a></li>
+                          <li><a href='<?= BASE_URL."data_pemesan.html" ?>'>Checkout</a></li>
                       </ul>
                   </div>
               </div>

@@ -1,3 +1,21 @@
+<!-- Breadcrumb Begin -->
+<div class="breadcrumb-option">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="breadcrumb__links">
+					<a href='<?= BASE_URL ?>'><i class="fa fa-home"></i> Home</a>
+					<a href="<?= BASE_URL."index.php?page=menu&module=banner&action=list" ?>">Banner </a>
+					<span>
+						<?= isset($_GET['banner_id']) ? 'Edit' : 'Add'; ?>
+					</span>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- Breadcrumb End -->
+
 <?php
        
     $banner_id = isset($_GET['banner_id']) ? $_GET['banner_id'] : "";
@@ -20,40 +38,49 @@
 		$banner = $row["banner"];
 		$link = $row["link"];
 		$gambar = "<img src='". BASE_URL."images/banner/$row[gambar]' style='width: 700px;vertical-align: middle;' />";
-		$keterangan_gambar = "* Klik Pilih File/Choose File jika ingin mengganti gambar";
+		$keterangan_gambar = "* Choose File for update your item picture";
 		$status = $row["status"];
     }   
 ?>
 
-<form action="<?php echo BASE_URL."module/banner/action.php?banner_id=$banner_id"?>" method="post" enctype="multipart/form-data">
-	
-	<div class="element-form">
-		<label>Banner</label>	
-		<span><input type="text" name="banner" value="<?php echo $banner; ?>" /></span>
-	</div>	
-
-	<div class="element-form">
-		<label>Link</label>	
-		<span><input type="text" name="link" value="<?php echo $link; ?>" /></span>
-	</div>	   
-
-	<div class="element-form">
-		<label>Gambar Produk <?php echo $keterangan_gambar; ?></label>
-		<span>
-			<h5>* Maksimal ukuran gambar 3MB<br></h5>
-			<input type="file" name="file" /> <?php echo $gambar; ?>
-		</span>
+<form action="<?php echo BASE_URL."module/banner/action.php?banner_id=$banner_id"?>" method="post" enctype="multipart/form-data" class="mt-5">
+	<div class="form-row">
+		<div class="form-group col-md-4">
+			<label>Name Banner</label>
+			<input type="text" class="form-control" name="banner" value="<?php echo $banner; ?>" />
+		</div>
+		<div class="form-group col-md-8">
+			<label>Link</label>
+			<input type="text" class="form-control" name="link" value="<?php echo $link; ?>" />
+		</div>
+	</div>
+	<div class="form-row">
+		<div class="form-group col-md-8">
+		<label>Photo Product</label>
+		<div class="custom-file">
+			<input type="file" class="custom-file-input" name="file" />
+			<label class="custom-file-label" for="customFile">Choose file</label>
+		</div>
+		<small><?php echo $keterangan_gambar; ?></small>
+		</div>
+		<div class="form-group col-md-4 d-flex justify-content-center">
+		<?php echo $gambar; ?>
+		</div>
 	</div>	  
-
-	<div class="element-form">
-		<label>Status</label>	
-		<span>
-			<input type="radio" value="on" name="status" <?php if($status == "on"){ echo "checked"; } ?> /> On
-			<input type="radio" value="off" name="status" <?php if($status == "off"){ echo "checked"; } ?> /> Off		
-		</span>
-	</div>	   
-	   
-	<div class="element-form">
-		<span><input type="submit" name="button" value="<?php echo $button; ?>" class="submit-my-profile" /></span>
-	</div>	
+	<div class="form-group">
+		<label>Status</label>
+		<div class="form-check form-check-inline">
+			<input class="form-check-input" type="radio" name="status" value="on"
+				<?php if ($status == 'on') { echo "checked='true'";} ?> />
+			<label class="form-check-label" for="inlineRadio1">ON</label>
+		</div>
+		<div class="form-check form-check-inline">
+			<input class="form-check-input" type="radio" name="status" value="off"
+				<?php if ($status == 'off') { echo "checked='true'";} ?> />
+			<label class="form-check-label" for="inlineRadio2">OFF</label>
+		</div>
+	</div>
+	<button type="submit" class="btn btn-primary" name="button" value="<?php echo($button); ?>" >
+		Submit
+	</button>	
 </form>

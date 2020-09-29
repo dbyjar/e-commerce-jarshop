@@ -1,3 +1,21 @@
+<!-- Breadcrumb Begin -->
+<div class="breadcrumb-option">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="breadcrumb__links">
+					<a href='<?= BASE_URL ?>'><i class="fa fa-home"></i> Home</a>
+					<a href="<?= BASE_URL."index.php?page=menu&module=barang&action=list" ?>">Items </a>
+					<span>
+						<?= isset($_GET['barang_id']) ? 'Edit' : 'Add'; ?>
+					</span>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- Breadcrumb End -->
+
 <?php
 
 	$barang_id = isset($_GET['barang_id']) ? $_GET['barang_id'] : false;
@@ -26,7 +44,7 @@
 		$status = $row['status'];
 		$button = "Update";
 		
-		$keterangan_gambar = '  "* Klik Pilih File/Choose File jika ingin mengganti gambar"';
+		$keterangan_gambar = '* Choose File for update your item picture';
 		$gambar = "<img src='".BASE_URL."images/cloth/$gambar' style='width: 200px;vertical-align: middle;' />";
 	}
 
@@ -34,14 +52,15 @@
 
 <script src="<?php echo BASE_URL."js/ckeditor/ckeditor.js"; ?>"></script>
 
-<form action="<?php echo BASE_URL."module/barang/aksi.php?barang_id=$barang_id"; ?>"
-	method="POST" enctype="multipart/form-data">
-
-	<div class="element-form">
-		<label>Kategori</label>
-		<span>
-			
-			<select name="kategori_id">
+<form action="<?php echo BASE_URL."module/barang/aksi.php?barang_id=$barang_id"; ?>" method="POST" enctype="multipart/form-data" class="mt-5">
+  <div class="form-row">
+    <div class="form-group col-md-8">
+      <label>Name</label>
+      <input type="text" class="form-control" name="nama_barang" value="<?php echo $nama_barang; ?>" />
+    </div>
+    <div class="form-group col-md-4">
+      <label>Category</label>
+      <select name="kategori_id" class="form-control">
 				<?php
 					$query = mysqli_query($koneksi, "SELECT kategori_id, kategori FROM kategori
 						WHERE status='on' ORDER BY kategori ASC");
@@ -58,51 +77,52 @@
 						}
 					}
 				?>
-			</select>
-		
-		</span>
+        </select>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-12">
+      <label>Description</label>
+      <textarea name="spesifikasi" id="editor" class="form-control" rows="3">
+        <?php echo $spesifikasi; ?>
+      </textarea>
+    </div>
+    <div class="form-group col-md-6">
+      <label>Quantity</label>
+      <input type="text" class="form-control" name="stok" value="<?php echo $stok; ?>" />
+    </div>
+    <div class="form-group col-md-6">
+      <label>Price</label>
+      <input type="text" class="form-control" name="harga" value="<?php echo $harga; ?>" />
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-8">
+      <label>Photo Product</label>
+      <div class="custom-file">
+        <input type="file" class="custom-file-input" name="file" />
+        <label class="custom-file-label" for="customFile">Choose file</label>
+      </div>
+      <small><?php echo $keterangan_gambar; ?></small>
+    </div>
+    <div class="form-group col-md-4 d-flex justify-content-center">
+      <?php echo $gambar; ?>
+    </div>
+  </div>
+	<div class="form-group">
+  <label>Status</label>
+		<div class="form-check form-check-inline">
+			<input class="form-check-input" type="radio" name="status" value="on"
+				<?php if ($status == 'on') { echo "checked='true'";} ?> />
+			<label class="form-check-label" for="inlineRadio1">ON</label>
+		</div>
+		<div class="form-check form-check-inline">
+			<input class="form-check-input" type="radio" name="status" value="off"
+				<?php if ($status == 'off') { echo "checked='true'";} ?> />
+			<label class="form-check-label" for="inlineRadio2">OFF</label>
+		</div>
 	</div>
-
-	<div class="element-form">
-		<label>Nama Barang</label>
-		<span><input type="text" name="nama_barang" value="<?php echo $nama_barang; ?>" /></span>
-	</div>	
-
-	<div style="margin-bottom: 15px;">
-		<label style="font-weight: bold;">Spesifikasi</label>
-		<span><textarea name="spesifikasi" id="editor"><?php echo $spesifikasi; ?></textarea></span>
-	</div>	
-	
-	<div class="element-form">
-		<label>Stok</label>
-		<span><input type="text" name="stok" value="<?php echo $stok; ?>" /></span>
-	</div>	
-
-	<div class="element-form">
-		<label>Harga</label>
-		<span><input type="text" name="harga" value="<?php echo $harga; ?>" /></span>
-	</div>
-
-	<div class="element-form">
-		<label>Gambar Produk <?php echo $keterangan_gambar; ?></label>
-		<span>
-			<h5>* Maksimal ukuran gambar 3MB<br></h5>
-			<input type="file" name="file" /> <?php echo $gambar; ?>
-		</span>
-	</div>		
-	
-	<div class="element-form">
-		<label>Status</label>
-		<span>
-			<input type="radio" name="status" value="on" <?php if($status == "on"){ echo "checked='true'"; } ?> /> On
-			<input type="radio" name="status" value="off" <?php if($status == "off"){ echo "checked='true'"; } ?> /> Off
-		</span>
-	</div>	
-
-	<div class="element-form">
-		<span><input type="submit" name="button" value="<?php echo $button; ?>" /></span>
-	</div>
-
+	<button type="submit" class="btn btn-primary" name="button" value="<?php echo($button); ?>" >Submit</button>
 </form>
 
 <script>
